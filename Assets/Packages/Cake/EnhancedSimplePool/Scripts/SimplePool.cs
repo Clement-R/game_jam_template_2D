@@ -32,8 +32,6 @@ using System.Collections.Generic;
 
 using UnityEngine;
 
-using Cake.Utils;
-
 namespace Cake.Pooling
 {
     public static class SimplePool
