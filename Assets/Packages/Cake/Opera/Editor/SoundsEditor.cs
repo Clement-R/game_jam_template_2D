@@ -16,12 +16,11 @@ namespace Cake.Opera.Data
         {
             serializedObject.Update();
 
-            SerializedProperty valuesProperty = serializedObject.FindProperty("Values");;
+            SerializedProperty valuesProperty = serializedObject.FindProperty("Values");
 
             for (int i = 0; i < valuesProperty.arraySize; i++)
             {
                 SerializedProperty entry = valuesProperty.GetArrayElementAtIndex(i);
-
                 EditorGUILayout.PropertyField(entry);
             }
 

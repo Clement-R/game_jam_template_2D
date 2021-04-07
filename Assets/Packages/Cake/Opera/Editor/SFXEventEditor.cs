@@ -18,13 +18,25 @@ namespace Cake.Opera.Data
         {
             EditorGUI.BeginProperty(position, label, property);
 
-            SerializedProperty eventProperty = property.FindPropertyRelative("Event");
-            SerializedProperty soundProperty = property.FindPropertyRelative("Sound");
+            SerializedProperty eventValueProperty = property.FindPropertyRelative("Value");
 
-            EditorGUILayout.BeginHorizontal();
-            EditorGUILayout.LabelField(eventProperty.stringValue, GUILayout.Width(200f));
-            soundProperty.objectReferenceValue = EditorGUILayout.ObjectField(soundProperty.objectReferenceValue, typeof(SFX), false);
-            EditorGUILayout.EndHorizontal();
+            // Get fields by reflection
+            Type soundEventsType = typeof(SoundEvents);
+            List<FieldInfo> eventsFields = soundEventsType.GetFields().ToList();
+
+            var options = eventsFields
+                .Select(e => (string) e.GetValue(null))
+                .ToList();
+
+            // Properties
+            var currentEvent = eventValueProperty.stringValue;
+            var currentEventIndex = options.IndexOf(currentEvent);
+            if (currentEventIndex == -1)
+                currentEventIndex = 0;
+
+            var index = EditorGUI.Popup(new Rect(0, position.height + 10, position.width, 20), currentEventIndex, options.ToArray());
+
+            eventValueProperty.stringValue = options[index];
 
             EditorGUI.EndProperty();
         }

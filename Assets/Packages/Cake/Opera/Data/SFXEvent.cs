@@ -3,12 +3,11 @@ namespace Cake.Opera.Data
     [System.Serializable]
     public class SFXEvent
     {
-        public string Event;
-        public SFX Sound;
+        public string Value = string.Empty;
 
         public SFXEvent(string p_event)
         {
-            Event = p_event;
+            Value = p_event;
         }
     }
 }

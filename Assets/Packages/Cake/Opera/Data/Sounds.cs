@@ -7,14 +7,14 @@ using UnityEngine;
 
 namespace Cake.Opera.Data
 {
-    [CreateAssetMenu(fileName = "Sounds", menuName = "Sound/Sounds", order = 0)]
+    [CreateAssetMenu(fileName = "Sounds", menuName = "Audio/Sounds", order = 0)]
     public class Sounds : ScriptableObject
     {
-        public List<SFXEvent> Values = new List<SFXEvent>();
+        public List<SFX> Values = new List<SFX>();
 
-        public SFX Get(string p_event)
+        public SFXSound Get(string p_event)
         {
-            SFXEvent entry = Values.FirstOrDefault(e => e.Event == p_event);
+            SFX entry = Values.FirstOrDefault(e => e.Event.Value == p_event);
             if (entry == null)
                 return null;
 
@@ -28,13 +28,13 @@ namespace Cake.Opera.Data
             List<FieldInfo> eventsFields = soundEventsType.GetFields().ToList();
 
             var values = eventsFields.Select(e => (string) e.GetValue(null));
-            List<string> currentValues = Values.Select(e => e.Event).ToList();
+            List<string> currentValues = Values.Select(e => e.Event.Value).ToList();
 
             // Find old values and remove them
             var oldValues = currentValues.Except(values);
             foreach (var eventName in oldValues)
             {
-                var entry = Values.FirstOrDefault(e => e.Event == eventName);
+                var entry = Values.FirstOrDefault(e => e.Event.Value == eventName);
                 Values.Remove(entry);
             }
 
@@ -42,7 +42,7 @@ namespace Cake.Opera.Data
             var missingValues = values.Except(currentValues);
             foreach (var value in missingValues)
             {
-                Values.Add(new SFXEvent(value));
+                Values.Add(new SFX(new SFXEvent(value)));
             }
         }
     }
