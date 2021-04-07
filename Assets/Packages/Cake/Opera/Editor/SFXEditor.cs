@@ -1,6 +1,6 @@
 using UnityEditor;
 
-namespace Cake.Opera
+namespace Cake.Opera.Data
 {
     [CustomEditor(typeof(SFX))]
     [CanEditMultipleObjects]

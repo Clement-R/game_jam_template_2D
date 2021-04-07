@@ -4,7 +4,7 @@ using UnityEngine;
 
 using Cake.Data;
 
-namespace Cake.Opera
+namespace Cake.Opera.Data
 {
     [CreateAssetMenu(fileName = "SFX", menuName = "Game/SFX", order = 1)]
     public class SFX : ScriptableObject
