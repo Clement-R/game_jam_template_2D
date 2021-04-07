@@ -25,5 +25,41 @@ namespace Cake.Opera.Data
         [Range(0f, 1f)]
         public float Pitch = 0.5f;
         public ValueRange PitchRange = new ValueRange(0f, 1f);
+
+        public AudioClip GetClip()
+        {
+            if (Random)
+            {
+                return Clips.Random();
+            }
+            else
+            {
+                return Clip;
+            }
+        }
+
+        public float GetVolume()
+        {
+            if (VolumeRandom)
+            {
+                return VolumeRange.Random();
+            }
+            else
+            {
+                return Volume;
+            }
+        }
+
+        public float GetPitch()
+        {
+            if (PitchRandom)
+            {
+                return PitchRange.Random();
+            }
+            else
+            {
+                return Pitch;
+            }
+        }
     }
 }

@@ -12,9 +12,9 @@ namespace Cake.Opera.Data
     {
         public List<SFX> Values = new List<SFX>();
 
-        public SFXSound Get(string p_event)
+        public SFXSound Get(SFXEvent p_event)
         {
-            SFX entry = Values.FirstOrDefault(e => e.Event.Value == p_event);
+            SFX entry = Values.FirstOrDefault(e => e.Event == p_event);
             if (entry == null)
                 return null;
 
