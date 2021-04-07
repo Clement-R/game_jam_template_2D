@@ -4,7 +4,7 @@ using UnityEngine;
 
 using Cake.Utils;
 
-namespace Cake.Routine
+namespace Cake.Genoise
 {
     public class RoutineRunner : Singleton<RoutineRunner>
     {

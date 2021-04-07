@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 using UnityEngine;
 
-namespace Cake.Routine
+namespace Cake.Genoise
 {
     public static class Routine
     {
