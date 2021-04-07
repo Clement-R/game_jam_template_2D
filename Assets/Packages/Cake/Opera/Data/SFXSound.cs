@@ -22,9 +22,9 @@ namespace Cake.Opera.Data
 
         // Pitch
         public bool PitchRandom;
-        [Range(0f, 1f)]
-        public float Pitch = 0.5f;
-        public ValueRange PitchRange = new ValueRange(0f, 1f);
+        [Range(0.5f, 1.5f)]
+        public float Pitch = 1f;
+        public ValueRange PitchRange = new ValueRange(0.5f, 1.5f);
 
         public AudioClip GetClip()
         {

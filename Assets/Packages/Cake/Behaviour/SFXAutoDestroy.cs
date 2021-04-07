@@ -12,7 +12,7 @@ namespace Cake.Behaviour
             if (audioSource == null || audioSource.clip == null)
                 return 0f;
 
-            return audioSource.clip.length;
+            return audioSource.clip.length + 0.5f;
         }
     }
 }

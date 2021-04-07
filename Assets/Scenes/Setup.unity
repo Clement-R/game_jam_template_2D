@@ -156,6 +156,7 @@ MonoBehaviour:
   m_managers:
   - {fileID: 11400000, guid: 76f6a387c2a4f3d4184ebf3d44773125, type: 2}
   - {fileID: 11400000, guid: f10ed15f448d2ea4a8743e7471737bf5, type: 2}
+  - {fileID: 11400000, guid: 9aac709140deb2a4b8472a3e521a57d0, type: 2}
 --- !u!4 &811156002
 Transform:
   m_ObjectHideFlags: 0

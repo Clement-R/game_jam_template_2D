@@ -21,6 +21,15 @@ namespace Cake.Opera.Data
             return entry.Sound;
         }
 
+        public SFXSound Get(string p_eventName)
+        {
+            SFX entry = Values.FirstOrDefault(e => e.Event.Value == p_eventName);
+            if (entry == null)
+                return null;
+
+            return entry.Sound;
+        }
+
         [ContextMenu("Populate")]
         private void Populate()
         {
