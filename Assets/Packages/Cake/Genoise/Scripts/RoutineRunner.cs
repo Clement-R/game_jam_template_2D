@@ -17,5 +17,10 @@ namespace Cake.Genoise
         {
             StopCoroutine(p_coroutine);
         }
+
+        protected override void OnDestroyed()
+        {
+            StopAllCoroutines();
+        }
     }
 }
