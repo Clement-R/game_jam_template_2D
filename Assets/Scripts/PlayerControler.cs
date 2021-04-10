@@ -77,6 +77,12 @@ namespace Cake.Millefeuille
             m_rb.velocity = new Vector2(horizontalVelocity, m_rb.velocity.y);
 
             m_input = Vector2.zero;
+
+        }
+
+        private void LateUpdate()
+        {
+            transform.position = Vector3Int.FloorToInt(transform.position);
         }
     }
 }

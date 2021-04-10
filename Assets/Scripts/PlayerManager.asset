@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60f0504912dfcb643aa9b88da12243ff, type: 3}
   m_Name: PlayerManager
   m_EditorClassIdentifier: 
-  PlayerJumpHeight: 10
-  PlayerHorizontalSpeed: 5
+  PlayerJumpHeight: 150
+  PlayerHorizontalSpeed: 100
