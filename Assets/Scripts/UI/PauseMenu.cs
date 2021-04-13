@@ -11,17 +11,22 @@ public class PauseMenu : Menu
 {
     [SerializeField] private Button m_resumeButton;
     [SerializeField] private Button m_mainMenuButton;
+    [SerializeField] private SceneReference m_mainMenuScene;
 
     private GameManager m_gameManager;
+    private ScenesManager m_scenesManager;
 
     void Start()
     {
         m_gameManager = Container.Get<GameManager>();
+        m_scenesManager = Container.Get<ScenesManager>();
 
         m_resumeButton.onClick.AddListener(Resume);
         m_mainMenuButton.onClick.AddListener(GoToMainMenu);
 
         m_gameManager.GameState.OnValueChanged += GameStateChanged;
+
+        m_group.Hide();
     }
 
     private void OnDestroy()
@@ -33,15 +38,11 @@ public class PauseMenu : Menu
     {
         if (p_state == EGameState.PAUSE)
         {
-            m_group.alpha = 1f;
-            m_group.interactable = true;
-            m_group.blocksRaycasts = true;
+            m_group.Show();
         }
         else
         {
-            m_group.alpha = 0f;
-            m_group.interactable = false;
-            m_group.blocksRaycasts = false;
+            m_group.Hide();
         }
     }
 
@@ -53,5 +54,6 @@ public class PauseMenu : Menu
     private void GoToMainMenu()
     {
         m_gameManager.GameState.Value = EGameState.MAIN_MENU;
+        m_scenesManager.SwitchCurrentScene(m_mainMenuScene);
     }
 }

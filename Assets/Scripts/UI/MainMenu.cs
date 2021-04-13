@@ -38,7 +38,6 @@ public class MainMenu : MonoBehaviour
         m_mainMenuButton.onClick.AddListener(GoToMainMenu);
 
         m_camera = Camera.main;
-
     }
 
     private void StartGame()

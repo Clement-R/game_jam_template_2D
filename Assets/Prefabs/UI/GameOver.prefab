@@ -64,8 +64,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09d40fd3d54b0bf47889081960f7752b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_group: {fileID: 0}
   m_restartButton: {fileID: 1626208254669492481}
   m_mainMenuButton: {fileID: 7696683001462170172}
+  m_mainMenuScene:
+    sceneAsset: {fileID: 102900000, guid: 2cda990e2423bbf4892e6590ba056729, type: 3}
+    scenePath: Assets/Scenes/MainMenu.unity
 --- !u!1 &1358357061776490719
 GameObject:
   m_ObjectHideFlags: 0

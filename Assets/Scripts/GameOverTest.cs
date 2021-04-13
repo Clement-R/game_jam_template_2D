@@ -5,7 +5,7 @@ using UnityEngine;
 
 using Cake.Millefeuille;
 
-public class PauseHandler : MonoBehaviour
+public class GameOverTest : MonoBehaviour
 {
     private GameManager m_gameManager;
 
@@ -16,9 +16,9 @@ public class PauseHandler : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.G))
         {
-            m_gameManager.GameState.Value = EGameState.PAUSE;
+            m_gameManager.GameState.Value = EGameState.GAME_OVER;
         }
     }
 }
