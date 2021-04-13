@@ -276,16 +276,16 @@ namespace Cake.Pooling
         /// <summary>
         /// Despawn the specified gameobject back into its pool after a given delay.
         /// </summary>
-        // public static void Despawn(GameObject p_obj, float p_delay)
-        // {
-        //     new JCoroutine(_DespawnDelayed(p_obj, p_delay));
-        // }
+        public static void Despawn(GameObject p_obj, float p_delay)
+        {
+            Genoise.Routine.Start(_DespawnDelayed(p_obj, p_delay));
+        }
 
-        // private static IEnumerator _DespawnDelayed(GameObject p_obj, float p_delay)
-        // {
-        //     yield return new WaitForSeconds(p_delay);
-        //     Despawn(p_obj);
-        // }
+        private static IEnumerator _DespawnDelayed(GameObject p_obj, float p_delay)
+        {
+            yield return new WaitForSeconds(p_delay);
+            Despawn(p_obj);
+        }
 
         public static void Destroy(GameObject p_prefab, bool p_destroyElementsOneByOne = false)
         {

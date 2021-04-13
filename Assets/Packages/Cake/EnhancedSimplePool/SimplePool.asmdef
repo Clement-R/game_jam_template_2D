@@ -2,7 +2,8 @@
     "name": "SimplePool",
     "rootNamespace": "",
     "references": [
-        "GUID:eb30d87f7c7e0534183a6bc86581d1e8"
+        "GUID:eb30d87f7c7e0534183a6bc86581d1e8",
+        "GUID:59ff6ba5c48a070419eb12cf7acfb4db"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
