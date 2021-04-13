@@ -1,0 +1,95 @@
+using System;
+using System.Collections.Generic;
+
+using UnityEngine;
+
+namespace Cake.FSM
+{
+    public class StateMachine
+    {
+        private AState m_currentState;
+        private List<AState> m_states = new List<AState>();
+        // <from, <to, condition>>
+        private Dictionary<AState, Dictionary<AState, Func<bool>>> m_transitions = new Dictionary<AState, Dictionary<AState, Func<bool>>>();
+
+        //TODO: custom transition between two states not managed yet
+        // private ATransition m_currentTransition
+
+        public StateMachine(params AState[] p_states)
+        {
+            AddStates(p_states);
+        }
+
+        public StateMachine SetCurrentState(AState p_state)
+        {
+            if (!m_states.Contains(p_state))
+            {
+                return null;
+            }
+
+            m_currentState = p_state;
+            return this;
+        }
+
+        protected StateMachine AddStates(params AState[] p_states)
+        {
+            for (int i = 0; i < p_states.Length; i++)
+            {
+                p_states[i].SetOwner(this);
+                m_states.Add(p_states[i]);
+            }
+
+            return this;
+        }
+
+        public StateMachine AddTransition(AState p_from, AState p_to, Func<bool> p_condition = null)
+        {
+            // Initialization
+            if (m_transitions == null)
+            {
+                m_transitions = new Dictionary<AState, Dictionary<AState, Func<bool>>>();
+            }
+
+            if (!m_transitions.ContainsKey(p_from))
+            {
+                m_transitions.Add(p_from, new Dictionary<AState, Func<bool>>());
+            }
+
+            // Add state
+            m_transitions[p_from].Add(p_to, p_condition);
+
+            return this;
+        }
+
+        public bool TransitionTo(AState p_to)
+        {
+            if (!m_transitions.ContainsKey(m_currentState))
+            {
+                Debug.Log("Current state has no transitions");
+                return false;
+            }
+
+            if (!m_transitions[m_currentState].ContainsKey(p_to))
+            {
+                return false;
+            }
+
+            var condition = m_transitions[m_currentState][p_to];
+            if (condition != null && !condition.Invoke())
+            {
+                return false;
+            }
+
+            m_currentState.OnExit();
+            m_currentState = p_to;
+            m_currentState.OnEnter();
+
+            return true;
+        }
+
+        public void Update()
+        {
+            m_currentState.Update();
+        }
+    }
+}

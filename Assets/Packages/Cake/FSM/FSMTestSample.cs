@@ -41,4 +41,58 @@ namespace Cake.FSM
             m_fsm.TransitionTo(m_lockedState);
         }
     }
+
+    public class Open : AState
+    {
+        public override void OnEnter()
+        {
+            Debug.Log("Door is now opened");
+        }
+
+        public override void OnExit()
+        {
+
+        }
+
+        public override void Update()
+        {
+
+        }
+    }
+
+    public class Closed : AState
+    {
+        public override void OnEnter()
+        {
+            Debug.Log("Door is now closed");
+        }
+
+        public override void OnExit()
+        {
+
+        }
+
+        public override void Update()
+        {
+
+        }
+    }
+
+    public class Locked : AState
+    {
+        public override void OnEnter()
+        {
+            Debug.Log("Door is now locked");
+        }
+
+        public override void OnExit()
+        {
+
+        }
+
+        public override void Update()
+        {
+
+        }
+    }
 }
