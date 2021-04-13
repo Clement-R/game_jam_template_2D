@@ -2,9 +2,9 @@ namespace Cake.Millefeuille
 {
     public enum EGameState
     {
-        MainMenu = 0,
-        Game = 1,
-        PauseMenu = 2,
-        Credits = 3
+        MAIN_MENU = 0,
+        GAME = 1,
+        PAUSE = 2,
+        GAME_OVER = 3
     }
 }

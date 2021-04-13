@@ -8,7 +8,18 @@ namespace Cake.Millefeuille
 {
     public class ContainerData : Singleton<ContainerData>
     {
-        public List<Manager> Managers => m_managers;
+        public List<Manager> Managers => m_runtimeManagers;
         [SerializeField] private List<Manager> m_managers;
+
+        private List<Manager> m_runtimeManagers = new List<Manager>();
+
+        protected override void OnAwake()
+        {
+            foreach (var manager in m_managers)
+            {
+                var instance = Instantiate(manager);
+                m_runtimeManagers.Add(instance);
+            }
+        }
     }
 }

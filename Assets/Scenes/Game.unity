@@ -134,6 +134,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PauseMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 3918240231931973388, guid: 078c0dad4a13a3d45a2d3f0f681d2d8e, type: 3}
+      propertyPath: m_group
+      value: 
+      objectReference: {fileID: 363854568}
     - target: {fileID: 6471493508948971191, guid: 078c0dad4a13a3d45a2d3f0f681d2d8e, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -224,6 +228,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 078c0dad4a13a3d45a2d3f0f681d2d8e, type: 3}
+--- !u!225 &363854568 stripped
+CanvasGroup:
+  m_CorrespondingSourceObject: {fileID: 8988516048162645606, guid: 078c0dad4a13a3d45a2d3f0f681d2d8e, type: 3}
+  m_PrefabInstance: {fileID: 363854567}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &479544168
 GameObject:
   m_ObjectHideFlags: 0
@@ -515,8 +524,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6631889208983366077, guid: 5cbd13923e9a2454a92b6df42537cf9b, type: 3}
+      propertyPath: m_group
+      value: 
+      objectReference: {fileID: 892167984}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5cbd13923e9a2454a92b6df42537cf9b, type: 3}
+--- !u!225 &892167984 stripped
+CanvasGroup:
+  m_CorrespondingSourceObject: {fileID: 8988516048162645606, guid: 5cbd13923e9a2454a92b6df42537cf9b, type: 3}
+  m_PrefabInstance: {fileID: 892167983}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1234074076
 GameObject:
   m_ObjectHideFlags: 0
@@ -687,6 +705,49 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4399356112634787002, guid: cd5dfb0528aafd14abd5857994d6b882, type: 3}
   m_PrefabInstance: {fileID: 4399356111378548252}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1735133711
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1735133713}
+  - component: {fileID: 1735133712}
+  m_Layer: 0
+  m_Name: PauseHandler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1735133712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1735133711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6af21ba032d62244d853816cf6bd009f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1735133713
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1735133711}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 6.4286118, y: 41.693153, z: -310.46063}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &4399356111378548252
 PrefabInstance:
   m_ObjectHideFlags: 0

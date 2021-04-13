@@ -42,6 +42,8 @@ public class SceneReference : ISerializationCallbackReceiver
     }
 #endif
 
+    public bool IsSet => !string.IsNullOrEmpty(ScenePath);
+
     // This should only ever be set during serialization/deserialization!
     [SerializeField]
     private string scenePath = string.Empty;
