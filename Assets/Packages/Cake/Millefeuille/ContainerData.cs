@@ -18,6 +18,8 @@ namespace Cake.Millefeuille
             foreach (var manager in m_managers)
             {
                 var instance = Instantiate(manager);
+                var type = instance.GetType().Name;
+                instance.name = type;
                 m_runtimeManagers.Add(instance);
             }
         }

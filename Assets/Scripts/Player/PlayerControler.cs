@@ -14,33 +14,19 @@ namespace Cake.Millefeuille
         private Rigidbody2D m_rb;
         private Vector2 m_input;
 
-        protected override void Start()
+        protected void Awake()
         {
-            base.Start();
-
             m_rb = GetComponent<Rigidbody2D>();
             m_playerManager = Container.Get<PlayerManager>();
         }
 
         protected override void PauseChanged(bool p_pause)
         {
-            if (p_pause)
-            {
-                m_rb.simulated = false;
-            }
-            else
-            {
-                m_rb.simulated = true;
-            }
+            m_rb.simulated = !p_pause;
         }
 
         protected override void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                m_gameManager.Pause.Value = !m_gameManager.Pause.Value;
-            }
-
             base.Update();
 
             if (Input.GetKeyDown(KeyCode.W))

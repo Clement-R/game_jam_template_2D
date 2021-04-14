@@ -11,7 +11,6 @@ public class GameOverMenu : Menu
 {
     [SerializeField] private Button m_restartButton;
     [SerializeField] private Button m_mainMenuButton;
-    [SerializeField] private SceneReference m_mainMenuScene;
 
     private GameManager m_gameManager;
     private ScenesManager m_scenesManager;
@@ -49,12 +48,12 @@ public class GameOverMenu : Menu
     private void Restart()
     {
         m_gameManager.GameState.Value = EGameState.GAME;
+        //TODO: maybe delegate that to a level manager if there's one
         m_scenesManager.ReloadCurrentScene();
     }
 
     private void GoToMainMenu()
     {
         m_gameManager.GameState.Value = EGameState.MAIN_MENU;
-        m_scenesManager.SwitchCurrentScene(m_mainMenuScene);
     }
 }
