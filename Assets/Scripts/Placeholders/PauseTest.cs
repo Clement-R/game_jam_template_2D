@@ -19,6 +19,7 @@ public class PauseTest : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.P))
         {
             m_gameManager.GameState.Value = EGameState.PAUSE;
+            m_gameManager.Pause.Value = !m_gameManager.Pause.Value;
         }
     }
 }

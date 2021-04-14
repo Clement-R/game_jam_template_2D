@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -8,12 +9,13 @@ using Cake.Millefeuille;
 
 public class SetupHandler : MonoBehaviour
 {
+#if UNITY_EDITOR
     [SerializeField] private SceneReference m_setupScene = null;
-    [SerializeField] private SceneReference m_mainMenuScene = null;
+#endif
 
-    private ScenesManager m_sceneManager;
+    private GameManager m_gameManager;
 
-    private void Start()
+    private async void Start()
     {
 #if UNITY_EDITOR
         if (SceneManager.GetActiveScene().name != m_setupScene.SceneName)
@@ -22,14 +24,12 @@ public class SetupHandler : MonoBehaviour
         }
 #endif
 
-        m_sceneManager = Container.Get<ScenesManager>();
+        var getGameManager = Container.GetAsync<GameManager>();
+        await getGameManager;
+        m_gameManager = getGameManager.Result;
 
-        if (m_mainMenuScene == null)
-        {
-            Debug.LogError("Main menu scene not found during setup");
-            return;
-        }
+        await Task.Yield();
 
-        m_sceneManager.SwitchCurrentScene(m_mainMenuScene);
+        m_gameManager.GameState.Value = EGameState.MAIN_MENU;
     }
 }
