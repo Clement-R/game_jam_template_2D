@@ -8,6 +8,12 @@ namespace Cake.Millefeuille
 {
     public class ContainerData : Singleton<ContainerData>
     {
+        public bool Initialized
+        {
+            get;
+            private set;
+        } = false;
+
         public List<Manager> Managers => m_runtimeManagers;
         [SerializeField] private List<Manager> m_managers;
 
@@ -22,6 +28,8 @@ namespace Cake.Millefeuille
                 instance.name = type;
                 m_runtimeManagers.Add(instance);
             }
+
+            Initialized = true;
         }
     }
 }
