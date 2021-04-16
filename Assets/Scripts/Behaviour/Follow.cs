@@ -20,12 +20,12 @@ public class Follow : MonoBehaviour
 
         if (m_onX)
         {
-            transform.position = Vector3Int.FloorToInt(transform.position.SetX(m_follow.transform.position.x));
+            transform.position = transform.position.SetX(m_follow.transform.position.x);
         }
 
         if (m_onY)
         {
-            transform.position = Vector3Int.FloorToInt(transform.position.SetY(m_follow.transform.position.y));
+            transform.position = transform.position.SetY(m_follow.transform.position.y);
         }
     }
 }

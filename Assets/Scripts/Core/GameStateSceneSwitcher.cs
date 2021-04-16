@@ -30,7 +30,6 @@ public class GameStateSceneSwitcher : MonoBehaviour
 
     private void OnGameStateChanged(EGameState p_state)
     {
-        Debug.Log($"State switched to {p_state}");
         if (p_state == EGameState.MAIN_MENU)
         {
             m_scenesManager.SwitchCurrentScene(m_mainMenuScene);

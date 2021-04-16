@@ -1,11 +1,9 @@
 using UnityEngine;
 
-namespace Cake.Millefeuille
+using Cake.Millefeuille;
+
+[CreateAssetMenu(fileName = "PlayerManager", menuName = "Manager/PlayerManager", order = 0)]
+public class PlayerManager : Manager
 {
-    [CreateAssetMenu(fileName = "PlayerManager", menuName = "Manager/PlayerManager", order = 0)]
-    public class PlayerManager : Manager
-    {
-        public float PlayerJumpHeight;
-        public float PlayerHorizontalSpeed;
-    }
+    public GameObject Player;
 }

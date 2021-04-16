@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b84fc71657d0bd842b0a33d8df357b80
+guid: a7e52e5275c7729489064d6be3273eac
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -18,7 +18,7 @@ ScriptedImporter:
     generateAnimations: 1
     createAnimationAssets: 0
     bindType: 0
-    animType: 1
+    animType: 0
     baseAnimator: {instanceID: 0}
     buildAtlas: 0
     tileSize: {x: 16, y: 16}

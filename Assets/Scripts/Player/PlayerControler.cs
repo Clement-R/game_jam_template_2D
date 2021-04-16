@@ -1,74 +1,82 @@
 using System;
+using System.Collections;
 
 using UnityEngine;
 
 using Cake.Core;
+using Cake.Millefeuille;
 
-namespace Cake.Millefeuille
+public class PlayerControler : PausableMonoBehaviour
 {
+    private PlayerManager m_playerManager = null;
+    private PlayerConfig m_playerConfig = null;
 
-    public class PlayerControler : PausableMonoBehaviour
+    private Rigidbody2D m_rb;
+    private Vector2 m_input;
+
+    protected async void Awake()
     {
-        private PlayerManager m_playerManager = null;
+        await Container.WaitReady();
 
-        private Rigidbody2D m_rb;
-        private Vector2 m_input;
+        m_rb = GetComponent<Rigidbody2D>();
 
-        protected void Awake()
+        m_playerManager = Container.Get<PlayerManager>();
+        m_playerConfig = Container.GetConfig<PlayerConfig>();
+
+        m_playerManager.Player = gameObject;
+    }
+
+    protected override void PauseChanged(bool p_pause)
+    {
+        m_rb.simulated = !p_pause;
+    }
+
+    protected override void Update()
+    {
+        base.Update();
+
+        if (Input.GetKeyDown(KeyCode.W))
         {
-            m_rb = GetComponent<Rigidbody2D>();
-            m_playerManager = Container.Get<PlayerManager>();
+            m_input.Set(m_input.x, 1f);
         }
 
-        protected override void PauseChanged(bool p_pause)
+        if (Input.GetKey(KeyCode.A))
         {
-            m_rb.simulated = !p_pause;
+            m_input.Set(-1f, m_input.y);
+        }
+        else if (Input.GetKey(KeyCode.D))
+        {
+            m_input.Set(1f, m_input.y);
+        }
+    }
+
+    protected override void FixedUpdate()
+    {
+        base.FixedUpdate();
+
+        if (m_rb == null)
+            return;
+
+        float horizontalVelocity = 0f;
+
+        if (m_input.x != 0)
+        {
+            horizontalVelocity = m_playerConfig.PlayerHorizontalSpeed * m_input.x;
         }
 
-        protected override void Update()
+        if (m_input.y != 0)
         {
-            base.Update();
-
-            if (Input.GetKeyDown(KeyCode.W))
-            {
-                m_input.Set(m_input.x, 1f);
-            }
-
-            if (Input.GetKey(KeyCode.A))
-            {
-                m_input.Set(-1f, m_input.y);
-            }
-            else if (Input.GetKey(KeyCode.D))
-            {
-                m_input.Set(1f, m_input.y);
-            }
+            m_rb.AddForce(Vector2.up * m_playerConfig.PlayerJumpHeight, ForceMode2D.Impulse);
         }
 
-        protected override void FixedUpdate()
-        {
-            base.FixedUpdate();
+        m_rb.velocity = new Vector2(horizontalVelocity, m_rb.velocity.y);
 
-            float horizontalVelocity = 0f;
+        m_input = Vector2.zero;
+    }
 
-            if (m_input.x != 0)
-            {
-                horizontalVelocity = m_playerManager.PlayerHorizontalSpeed * m_input.x;
-            }
-
-            if (m_input.y != 0)
-            {
-                m_rb.AddForce(Vector2.up * m_playerManager.PlayerJumpHeight, ForceMode2D.Impulse);
-            }
-
-            m_rb.velocity = new Vector2(horizontalVelocity, m_rb.velocity.y);
-
-            m_input = Vector2.zero;
-
-        }
-
-        private void LateUpdate()
-        {
-            transform.position = Vector3Int.FloorToInt(transform.position);
-        }
+    public void Bump()
+    {
+        m_rb.velocity = m_rb.velocity.SetY(0f);
+        m_rb.AddForce(Vector2.up * m_playerConfig.PlayerJumpHeight, ForceMode2D.Impulse);
     }
 }
