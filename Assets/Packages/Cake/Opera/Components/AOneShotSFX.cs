@@ -1,23 +1,24 @@
 using UnityEngine;
 
-using Cake.Millefeuille;
 using Cake.Opera.Data;
 
 namespace Cake.Opera
 {
-    public class OneShotSFX : MonoBehaviour
+    public abstract class AOneShotSFX : MonoBehaviour
     {
         public SFXEvent SFXEvent;
 
-        private SoundSystem m_soundSystem;
+        private ISoundSystem m_soundSystem;
 
         private void Start()
         {
-            m_soundSystem = Container.Get<SoundSystem>();
+            m_soundSystem = GetSoundSystem();
         }
 
+        protected abstract ISoundSystem GetSoundSystem();
+
         [ContextMenu("Preview")]
-        private void Preview()
+        protected void Preview()
         {
             m_soundSystem.PlaySFX(SFXEvent);
         }

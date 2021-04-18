@@ -247,13 +247,42 @@ PrefabInstance:
       propertyPath: m_PresetInfoIsWorld
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4399356112634787007, guid: cd5dfb0528aafd14abd5857994d6b882, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: cd5dfb0528aafd14abd5857994d6b882, type: 3}
 --- !u!224 &2135636117 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4399356112634787002, guid: cd5dfb0528aafd14abd5857994d6b882, type: 3}
   m_PrefabInstance: {fileID: 2135636116}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2135636118 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4399356112634787006, guid: cd5dfb0528aafd14abd5857994d6b882, type: 3}
+  m_PrefabInstance: {fileID: 2135636116}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2135636119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2135636118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efee6abead00a2041ad82d78fe88958d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UiScaleMode: 0
+  m_ReferencePixelsPerUnit: 1
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 800, y: 600}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
+  m_PresetInfoIsWorld: 1
 --- !u!1001 &370163156658720453
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -261,6 +290,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2135636117}
     m_Modifications:
+    - target: {fileID: 370163158556673312, guid: 0073780bb2ca04c4da89895197f2a52a, type: 3}
+      propertyPath: m_text
+      value: Play
+      objectReference: {fileID: 0}
+    - target: {fileID: 370163158556673312, guid: 0073780bb2ca04c4da89895197f2a52a, type: 3}
+      propertyPath: m_fontSize
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 370163158556673312, guid: 0073780bb2ca04c4da89895197f2a52a, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 16
+      objectReference: {fileID: 0}
     - target: {fileID: 2522763109752835445, guid: 0073780bb2ca04c4da89895197f2a52a, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -358,9 +399,29 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 818882808, guid: 79c2008827713094fb50ec58b5a02262, type: 3}
+      propertyPath: m_PixelSnapping
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7978078435304019561, guid: 79c2008827713094fb50ec58b5a02262, type: 3}
       propertyPath: m_Name
       value: Main Camera
+      objectReference: {fileID: 0}
+    - target: {fileID: 7978078435304019562, guid: 79c2008827713094fb50ec58b5a02262, type: 3}
+      propertyPath: m_NormalizedViewPortRect.x
+      value: 0.05686695
+      objectReference: {fileID: 0}
+    - target: {fileID: 7978078435304019562, guid: 79c2008827713094fb50ec58b5a02262, type: 3}
+      propertyPath: m_NormalizedViewPortRect.y
+      value: 0.14885496
+      objectReference: {fileID: 0}
+    - target: {fileID: 7978078435304019562, guid: 79c2008827713094fb50ec58b5a02262, type: 3}
+      propertyPath: m_NormalizedViewPortRect.width
+      value: 0.8583691
+      objectReference: {fileID: 0}
+    - target: {fileID: 7978078435304019562, guid: 79c2008827713094fb50ec58b5a02262, type: 3}
+      propertyPath: m_NormalizedViewPortRect.height
+      value: 0.85877866
       objectReference: {fileID: 0}
     - target: {fileID: 7978078435304019605, guid: 79c2008827713094fb50ec58b5a02262, type: 3}
       propertyPath: m_RootOrder

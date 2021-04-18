@@ -498,21 +498,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 818882807, guid: 79c2008827713094fb50ec58b5a02262, type: 3}
+      propertyPath: m_follow
+      value: 
+      objectReference: {fileID: 1234074078}
     - target: {fileID: 7978078435304019561, guid: 79c2008827713094fb50ec58b5a02262, type: 3}
       propertyPath: m_Name
       value: Main Camera
       objectReference: {fileID: 0}
     - target: {fileID: 7978078435304019562, guid: 79c2008827713094fb50ec58b5a02262, type: 3}
-      propertyPath: orthographic size
-      value: 45
+      propertyPath: m_NormalizedViewPortRect.x
+      value: 0.05686695
       objectReference: {fileID: 0}
-    - target: {fileID: 7978078435304019563, guid: 79c2008827713094fb50ec58b5a02262, type: 3}
-      propertyPath: m_AssetsPPU
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7978078435304019563, guid: 79c2008827713094fb50ec58b5a02262, type: 3}
-      propertyPath: m_PixelSnapping
-      value: 0
+    - target: {fileID: 7978078435304019562, guid: 79c2008827713094fb50ec58b5a02262, type: 3}
+      propertyPath: m_NormalizedViewPortRect.y
+      value: 0.14885496
       objectReference: {fileID: 0}
     - target: {fileID: 7978078435304019605, guid: 79c2008827713094fb50ec58b5a02262, type: 3}
       propertyPath: m_RootOrder
@@ -565,26 +565,6 @@ Camera:
   m_CorrespondingSourceObject: {fileID: 7978078435304019562, guid: 79c2008827713094fb50ec58b5a02262, type: 3}
   m_PrefabInstance: {fileID: 818882804}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &818882806 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7978078435304019561, guid: 79c2008827713094fb50ec58b5a02262, type: 3}
-  m_PrefabInstance: {fileID: 818882804}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &818882807
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 818882806}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b13b787be7ac84459ce9785d4678c49, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_follow: {fileID: 1234074078}
-  m_onX: 1
-  m_onY: 0
 --- !u!1001 &892167983
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -1,57 +1,53 @@
-using System.Collections.Generic;
-
 using UnityEngine;
 
-using Cake.Millefeuille;
+using Cake.Behaviour;
 using Cake.Opera.Data;
+using Cake.Pooling;
 
-namespace Cake.Opera
+public class SoundSystem
 {
-    using UnityEngine;
+    private Sounds m_sounds;
+    private GameObject m_oneShotSFX;
 
-    using Cake.Behaviour;
-    using Cake.Pooling;
-
-    [CreateAssetMenu(fileName = "SoundSystem", menuName = "Manager/SoundSystem", order = 0)]
-    public class SoundSystem : Manager
+    public SoundSystem(Sounds p_sounds, GameObject p_oneShotSFX)
     {
-        [SerializeField] private Sounds m_sounds;
-        [SerializeField] private GameObject m_oneShotSFX;
+        m_sounds = p_sounds;
+        m_oneShotSFX = p_oneShotSFX;
+    }
 
-        public void PlaySFX(string p_eventName)
+    public void PlaySFX(string p_eventName)
+    {
+        SFXSound sfx = m_sounds.Get(p_eventName);
+        if (sfx == null)
         {
-            SFXSound sfx = m_sounds.Get(p_eventName);
-            if (sfx == null)
-            {
-                Debug.Log($"{p_eventName} wasn't found in registered sounds");
-            }
-
-            Play(sfx);
+            Debug.Log($"{p_eventName} wasn't found in registered sounds");
         }
 
-        public void PlaySFX(SFXEvent p_event)
-        {
-            SFXSound sfx = m_sounds.Get(p_event);
-            if (sfx == null)
-            {
-                Debug.Log($"{p_event} wasn't found in registered sounds");
-            }
+        Play(sfx);
+    }
 
-            Play(sfx);
+    public void PlaySFX(SFXEvent p_event)
+    {
+        SFXSound sfx = m_sounds.Get(p_event);
+        if (sfx == null)
+        {
+            Debug.Log($"{p_event.Value} wasn't found in registered sounds");
         }
 
-        private void Play(SFXSound p_sfx)
-        {
-            var player = SimplePool.Spawn(m_oneShotSFX);
+        Play(sfx);
+    }
 
-            var audioSource = player.GetComponent<AudioSource>();
-            audioSource.clip = p_sfx.GetClip();
-            audioSource.volume = p_sfx.GetVolume();
-            audioSource.pitch = p_sfx.GetPitch();
-            audioSource.Play();
+    public void Play(SFXSound p_sfx)
+    {
+        var player = SimplePool.Spawn(m_oneShotSFX);
 
-            var autoDestroy = player.GetComponent<SFXAutoDestroy>();
-            autoDestroy.Destroy();
-        }
+        var audioSource = player.GetComponent<AudioSource>();
+        audioSource.clip = p_sfx.GetClip();
+        audioSource.volume = p_sfx.GetVolume();
+        audioSource.pitch = p_sfx.GetPitch();
+        audioSource.Play();
+
+        var autoDestroy = player.GetComponent<SFXAutoDestroy>();
+        autoDestroy.Destroy();
     }
 }
