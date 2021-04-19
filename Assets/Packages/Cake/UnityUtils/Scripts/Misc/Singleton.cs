@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 using UnityEngine;
 
@@ -60,6 +61,7 @@ namespace Cake.Utils
                 Destroy(this);
             }
         }
+
         private void OnDestroy()
         {
             if (m_instance == this)
@@ -76,6 +78,14 @@ namespace Cake.Utils
         protected virtual void OnDestroyed()
         {
             // override to implement custom behaviour
+        }
+
+        public static async Task WaitForInstance()
+        {
+            while (m_instance == null)
+            {
+                await Task.Delay(60);
+            }
         }
     }
 }

@@ -3,11 +3,9 @@ using System.Collections;
 
 using UnityEngine;
 
-using Cake.Millefeuille;
-
 using Example.Shared;
 
-namespace Example.Classic
+namespace Example.Light
 {
     public class PlayerControler : PausableMonoBehaviour
     {
@@ -19,12 +17,12 @@ namespace Example.Classic
 
         protected async void Awake()
         {
-            await Container.WaitReady();
+            await ConfigsManager.WaitForInstance();
 
             m_rb = GetComponent<Rigidbody2D>();
 
-            m_playerManager = Container.Get<PlayerManager>();
-            m_playerConfig = Container.GetConfig<PlayerConfig>();
+            m_playerManager = PlayerManager.Instance;
+            m_playerConfig = ConfigsManager.Instance.Get<PlayerConfig>();
 
             m_playerManager.Player = gameObject;
         }
