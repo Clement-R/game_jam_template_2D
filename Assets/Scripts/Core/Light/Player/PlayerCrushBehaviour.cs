@@ -36,7 +36,7 @@ namespace Example.Light
             foreach (var hit in hits)
             {
                 // kill enemy -> call on death
-                Destroy(hit.collider.gameObject);
+                hit.collider.gameObject.GetComponent<DeathEffect>().Death();
             }
 
             if (hits.Length > 0)
