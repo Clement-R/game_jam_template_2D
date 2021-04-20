@@ -21,6 +21,9 @@ namespace Cake.Opera.Data
         private SerializedProperty m_volume;
         private SerializedProperty m_volumeRange;
 
+        // Mixer group
+        private SerializedProperty m_mixerGroupProperty;
+
         void OnEnable()
         {
             // Clip(s)
@@ -37,6 +40,9 @@ namespace Cake.Opera.Data
             m_volumeRandom = serializedObject.FindProperty("VolumeRandom");
             m_volume = serializedObject.FindProperty("Volume");
             m_volumeRange = serializedObject.FindProperty("VolumeRange");
+
+            // Mixer group
+            m_mixerGroupProperty = serializedObject.FindProperty("MixerGroup");
         }
 
         public override void OnInspectorGUI()
@@ -78,6 +84,9 @@ namespace Cake.Opera.Data
             {
                 EditorGUILayout.PropertyField(m_volume);
             }
+
+            // Mixer group
+            EditorGUILayout.PropertyField(m_mixerGroupProperty);
 
             serializedObject.ApplyModifiedProperties();
         }

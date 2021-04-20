@@ -25,3 +25,4 @@ MonoBehaviour:
   PitchRange:
     Min: 0
     Max: 1
+  MixerGroup: {fileID: 5553635743492457132, guid: 7757da1cbfc93d248afabfa16bbf0865, type: 2}

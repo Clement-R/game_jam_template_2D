@@ -12,8 +12,9 @@ namespace Example.Light
 
         private SoundSystem m_soundSystem;
 
-        public void Awake()
+        protected override void OnAwake()
         {
+            base.OnAwake();
             m_soundSystem = new SoundSystem(m_sounds, m_oneShotSFX);
         }
 

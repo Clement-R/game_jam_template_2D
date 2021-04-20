@@ -45,6 +45,7 @@ public class SoundSystem
         audioSource.clip = p_sfx.GetClip();
         audioSource.volume = p_sfx.GetVolume();
         audioSource.pitch = p_sfx.GetPitch();
+        audioSource.outputAudioMixerGroup = p_sfx.MixerGroup;
         audioSource.Play();
 
         var autoDestroy = player.GetComponent<SFXAutoDestroy>();

@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 
 using UnityEngine;
+using UnityEngine.Audio;
 
 using Cake.Data;
 
@@ -25,6 +26,9 @@ namespace Cake.Opera.Data
         [Range(0.5f, 1.5f)]
         public float Pitch = 1f;
         public ValueRange PitchRange = new ValueRange(0.5f, 1.5f);
+
+        // Group
+        public AudioMixerGroup MixerGroup;
 
         public AudioClip GetClip()
         {
